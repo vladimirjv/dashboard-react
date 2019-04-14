@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+// import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemIcon, ListItemText,CssBaseline } from "@material-ui/core";
+// import MenuIcon  from "@material-ui/icons/Menu";
+// import InboxIcon from "@material-ui/icons/Inbox";
+// import MailIcon from "@material-ui/icons/Mail";
+import WebApp from './layouts/WebApp';
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <WebApp/>
     );
   }
 }
