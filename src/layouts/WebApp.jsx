@@ -2,24 +2,19 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import withWidth from "@material-ui/core/withWidth";
-import {
-  Drawer,
-  AppBar,
-  CssBaseline,
-  Toolbar,
-  List,
-  Typography,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  IconButton
-} from "@material-ui/core";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import Hidden from "@material-ui/core/Hidden";
+import RouteWithSubRoutes from "../components/RouteWithSubRoutes";
+import ListMenuSideBar from "../components/ListMenuSideBar";
 
 const drawerWidth = 200;
-
 const styles = theme => ({
   root: {
     display: "flex"
@@ -43,7 +38,10 @@ const styles = theme => ({
     flexGrow: 1,
     padding: theme.spacing.unit * 3
   },
-  toolbar: theme.mixins.toolbar
+  toolbar: theme.mixins.toolbar,
+  active:{
+    color:theme.primary
+  }
 });
 
 class ClippedDrawer extends Component {
@@ -63,16 +61,26 @@ class ClippedDrawer extends Component {
       return true
     }
   }
+  componentDidMount(){
+  }
+  componentWillUnmount(){
+    console.log(this.props)
+  }
   
   render(){
     return (
       <div className={this.props.classes.root}>
         <CssBaseline />
-        <AppBar position="fixed" className={this.props.classes.appBar}>
+        <AppBar 
+          position="fixed" 
+          className={this.props.classes.appBar}
+        >
           <Toolbar>
-            <IconButton color="inherit">
-              <MenuIcon />
-            </IconButton>
+            <Hidden lgUp>
+              <IconButton color="inherit">
+                <MenuIcon />
+              </IconButton>
+            </Hidden>
             <Typography variant="h6" color="inherit" noWrap>
               Clipped drawer
             </Typography>
@@ -82,20 +90,18 @@ class ClippedDrawer extends Component {
           className={this.props.classes.drawer}
           variant="persistent"
           open={this.Clipped()}
-          // classes={{
-          //   paper: classes.drawerPaper
-          // }}
         >
           <div className={this.props.classes.toolbar} />
           <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem button key={text}>
+            {/* {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+              <ListItem component={Link} to={`/app/${text}`} button key={text}  >
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
-            ))}
+            ))} */}
+            <ListMenuSideBar/>
           </List>
         </Drawer>
         <main className={this.props.classes.content}>
@@ -103,21 +109,11 @@ class ClippedDrawer extends Component {
           <Typography variant="h5">
               {`my actual width ${this.Clipped()}`}
           </Typography>
-          <Typography paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-            quisque non tellus. Convallis convallis tellus id interdum velit
-            laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-            adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-            lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-            faucibus et molestie ac.
-          </Typography>
+          
+          {this.props.routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+
         </main>
       </div>
     );
