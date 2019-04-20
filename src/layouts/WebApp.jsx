@@ -14,7 +14,7 @@ import Hidden from "@material-ui/core/Hidden";
 import RouteWithSubRoutes from "../components/RouteWithSubRoutes";
 import ListMenuSideBar from "../components/ListMenuSideBar";
 
-const drawerWidth = 200;
+const drawerWidth = 180;
 const styles = theme => ({
   root: {
     display: "flex"
@@ -26,17 +26,16 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]:{
       width:drawerWidth
     },
-    [theme.breakpoints.down('md')]:{
-      width:0
-    },
+    // [theme.breakpoints.down("md")]:{
+      // width:0,
+    // },
     flexShrink: 0
   },
   drawerPaper: {
     width: drawerWidth
   },
   content: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3
+    // flexGrow: 1,
   },
   toolbar: theme.mixins.toolbar,
   active:{
@@ -50,12 +49,10 @@ class ClippedDrawer extends Component {
     this.state = {
       clipped:true
     };
-    // const { classes,width } = this.props;
     this.Clipped=this.Clipped.bind(this);
   };
   Clipped(){
-    // console.log(typeof this.props.width)
-    if (this.props.width!=='lg') {
+    if (this.props.width!=='lg' && this.props.width!=='md') {
       return false
     } else {
       return true
@@ -93,22 +90,15 @@ class ClippedDrawer extends Component {
         >
           <div className={this.props.classes.toolbar} />
           <List>
-            {/* {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem component={Link} to={`/app/${text}`} button key={text}  >
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))} */}
             <ListMenuSideBar/>
           </List>
         </Drawer>
         <main className={this.props.classes.content}>
           <div className={this.props.classes.toolbar} />
-          <Typography variant="h5">
+          
+          {/* <Typography variant="h5">
               {`my actual width ${this.Clipped()}`}
-          </Typography>
+          </Typography> */}
           
           {this.props.routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />

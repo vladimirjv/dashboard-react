@@ -1,7 +1,8 @@
 import WebApp from "./layouts/WebApp";
 import Login from "./pages/login";
 import Inbox from "./pages/inbox";
-import Starred from "./pages/starred.jsx";
+// import Mapbox from "./pages/mapbox";
+import Map from "./pages/map";
 
 const routes = [
   {
@@ -18,7 +19,7 @@ const routes = [
       },
       {
         path:"/app/map",
-        component: Starred
+        component: Map
       },
     ]
   }
