@@ -1,3 +1,4 @@
+/* jshint esversion:6 */
 import mapboxgl from "mapbox-gl";
 
 /**
@@ -16,7 +17,7 @@ export const StyleMap = {
   streets: "mapbox://styles/mapbox/streets-v9",
   dark   : "dark",
   ligth  : "ligth"
-}
+};
 /**
  * Draw a map
  * @param {String} container
@@ -24,11 +25,13 @@ export const StyleMap = {
  * @param {Array<number>} location [lng,lat]
  * @param {number} zoom
  */
-export function drawMap(container,type,location,zoom){
+export function drawMap(container,type,location,zoom=10){
   mapboxgl.accessToken = apiToken;
   var map = new mapboxgl.Map({
     container: container,
-    style: StyleMap[type]
-  })
+    style: StyleMap[type],
+    center:[location[0],location[1]],
+    zoom: zoom
+  });
   return map;
 }

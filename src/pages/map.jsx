@@ -8,7 +8,7 @@ export default class Map extends Component {
   
   componentDidMount(){
     mapboxgl.accessToken =  apiToken;
-    this.map = drawMap("map","streets")
+    this.map = drawMap("map","streets",[-96.144886,19.196438],13)
   }
 
   render() {
