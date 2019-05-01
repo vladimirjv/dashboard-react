@@ -9,14 +9,14 @@ import mapboxgl from "mapbox-gl";
  * @property {string} custom "custom"
  */
 
- // ? Constantes
+// ? Constantes
 export const apiToken =
   "pk.eyJ1IjoidmxhZGltaXJqdiIsImEiOiJjanU0djdoZHgwMWFoNDNwZnB0bnhlb24yIn0.oEuXyOrAgaNWgqtPC6KPJg";
 
 export const StyleMap = {
   streets: "mapbox://styles/mapbox/streets-v9",
-  dark   : "dark",
-  ligth  : "ligth"
+  dark: "dark",
+  ligth: "ligth"
 };
 /**
  * Draw a map
@@ -25,13 +25,14 @@ export const StyleMap = {
  * @param {Array<number>} location [lng,lat]
  * @param {number} zoom
  */
-export function drawMap(container,type,location,zoom=10){
+export function drawMap(container, type, location, zoom = 10) {
   mapboxgl.accessToken = apiToken;
   var map = new mapboxgl.Map({
     container: container,
     style: StyleMap[type],
-    center:[location[0],location[1]],
+    center: [location[0], location[1]],
     zoom: zoom
   });
   return map;
 }
+export const DRAWER_WIDTH = 180;

@@ -1,26 +1,35 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 // import PropTypes from 'prop-types'
 import mapboxgl from "mapbox-gl";
-import { apiToken, drawMap } from "../utils/map";
+import { apiToken, drawMap, DRAWER_WIDTH } from "../utils/map";
+import { withStyles } from "@material-ui/core/styles";
 
+const styles = theme => ({
+  map: {
+    [theme.breakpoints.up("md")]: {
+      left: DRAWER_WIDTH
+    },
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0
+  }
+});
 
-export default class Map extends Component {
-  
-  componentDidMount(){
-    mapboxgl.accessToken =  apiToken;
-    this.map = drawMap("map","streets",[-96.144886,19.196438],13)
+class Map extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    mapboxgl.accessToken = apiToken;
+    this.map = drawMap("map", "streets", [-96.144886, 19.196438], 13);
   }
 
   render() {
-    const style ={
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        width: '90%'
-      };
-    return (
-      <div style={style} id="map">
-      </div>
-    )
+    return <div className={this.props.classes.map} id="map" />;
   }
 }
+export default withStyles(styles)(Map);

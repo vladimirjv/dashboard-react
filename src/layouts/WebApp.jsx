@@ -13,8 +13,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Hidden from "@material-ui/core/Hidden";
 import RouteWithSubRoutes from "../components/RouteWithSubRoutes";
 import ListMenuSideBar from "../components/ListMenuSideBar";
+import { DRAWER_WIDTH } from "../utils/map";
 
-const drawerWidth = 180;
 const styles = theme => ({
   root: {
     display: "flex"
@@ -23,55 +23,58 @@ const styles = theme => ({
     zIndex: theme.zIndex.drawer + 1
   },
   drawer: {
-    [theme.breakpoints.up('md')]:{
-      width:drawerWidth
+    [theme.breakpoints.up("md")]: {
+      width: DRAWER_WIDTH
     },
-    // [theme.breakpoints.down("md")]:{
-      // width:0,
-    // },
     flexShrink: 0
   },
   drawerPaper: {
-    width: drawerWidth
+    width: DRAWER_WIDTH
   },
-  content: {
-    // flexGrow: 1,
-  },
+  // content: {
+  //   // flexGrow: 1,
+  // },
   toolbar: theme.mixins.toolbar,
-  active:{
-    color:theme.primary
+  active: {
+    color: theme.primary
   }
 });
 
 class ClippedDrawer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      clipped:true
+      clipped: true
     };
-    this.Clipped=this.Clipped.bind(this);
-  };
-  Clipped(){
-    if (this.props.width!=='lg' && this.props.width!=='md') {
-      return false
+    this.Clipped = this.Clipped.bind(this);
+    this.clippedDrawer = this.clippedDrawer.bind(this);
+  }
+  Clipped() {
+    if (this.props.width !== "lg" && this.props.width !== "md") {
+      return false;
     } else {
-      return true
+      return true;
     }
   }
-  componentDidMount(){
+  clippedDrawer() {
+    if (this.props.width !== "lg" && this.props.width !== "md") {
+      console.log("show");
+    } else {
+      console.log("Not show");
+    }
   }
-  componentWillUnmount(){
-    console.log(this.props)
+  componentDidMount() {
+    window.addEventListener("resize", this.clippedDrawer);
   }
-  
-  render(){
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.clippedDrawer);
+  }
+
+  render() {
     return (
       <div className={this.props.classes.root}>
         <CssBaseline />
-        <AppBar 
-          position="fixed" 
-          className={this.props.classes.appBar}
-        >
+        <AppBar position="fixed" className={this.props.classes.appBar}>
           <Toolbar>
             <Hidden lgUp>
               <IconButton color="inherit">
@@ -85,30 +88,29 @@ class ClippedDrawer extends Component {
         </AppBar>
         <Drawer
           className={this.props.classes.drawer}
+          // variant="persistent"
           variant="persistent"
           open={this.Clipped()}
         >
           <div className={this.props.classes.toolbar} />
           <List>
-            <ListMenuSideBar/>
+            <ListMenuSideBar />
           </List>
         </Drawer>
         <main className={this.props.classes.content}>
           <div className={this.props.classes.toolbar} />
-          
+
           {/* <Typography variant="h5">
               {`my actual width ${this.Clipped()}`}
           </Typography> */}
-          
+
           {this.props.routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
           ))}
-
         </main>
       </div>
     );
   }
-  
 }
 
 ClippedDrawer.propTypes = {
