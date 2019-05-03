@@ -1,30 +1,35 @@
-import WebApp from "./app/layouts/WebApp";
+import WebApp from "./app/layouts/webapp/WebApp";
 import Login from "./app/pages/login";
-import Inbox from "./app/pages/dashboard/inbox";
+import Dashboard from "./app/pages/dashboard/dashboard";
 // import Mapbox from "./pages/mapbox";
-import Map from "./app/pages/map/map.jsx";
-import Licenses from "./app/pages/licenses/licenses.jsx";
+import Map from "./app/pages/map/map";
+import Licenses from "./app/pages/licenses/licenses";
+import Chat from "./app/pages/chat/chat";
 
 const routes = [
   {
-    path:"/login",
+    path: "/login",
     component: Login
   },
   {
-    path:"/app",
+    path: "/app",
     component: WebApp,
-    routes:[
+    routes: [
       {
         path: "/app/dashboard",
-        component: Inbox
+        component: Dashboard
       },
       {
-        path:"/app/map",
+        path: "/app/map",
         component: Map
       },
       {
-        path:"/app/placas",
+        path: "/app/placas",
         component: Licenses
+      },
+      {
+        path: "/app/chat",
+        component: Chat
       }
     ]
   }

@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 
-const styles = theme => ({
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 2,
-  }
-});
+import { styles } from "./dashboard.styles";
 
 class Inbox extends Component{
   constructor(props) {

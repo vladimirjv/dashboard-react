@@ -1,9 +1,3 @@
-// import { 
-//   Dashboard,
-//   Map,
-//   DirectionsCar
-// } from "@material-ui/icons";
-
 const Items = [
   {
     name: "Dashboard",
@@ -11,19 +5,19 @@ const Items = [
     path: "/app/dashboard"
   },
   {
-    name:"Map",
-    icon:"map",
-    path:"/app/map"
+    name: "Map",
+    icon: "map",
+    path: "/app/map"
   },
   {
-    name:"Placas",
+    name: "Placas",
     icon: "directionsCar",
     path: "/app/placas"
   },
   {
-		name:"Chat",
-		icon:"chat",
-		path: ""
-  },
+    name: "Chat",
+    icon: "chat",
+    path: "/app/chat"
+  }
 ];
 export default Items;

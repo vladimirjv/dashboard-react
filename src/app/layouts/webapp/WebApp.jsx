@@ -11,36 +11,11 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Hidden from "@material-ui/core/Hidden";
-import RouteWithSubRoutes from "../components/RouteWithSubRoutes";
-import ListMenuSideBar from "../components/ListMenuSideBar";
-import { DRAWER_WIDTH } from "../utils/map";
+
+import RouteWithSubRoutes from "../../components/RouteWithSubRoutes";
+import ListMenuSideBar from "../../components/ListMenuSideBar";
+import { styles } from "./WebApp.styles.js";
 import { Route, Redirect } from "react-router-dom";
-
-
-const styles = theme => ({
-  root: {
-    display: "flex"
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1
-  },
-  drawer: {
-    [theme.breakpoints.up("md")]: {
-      width: DRAWER_WIDTH
-    },
-    flexShrink: 0
-  },
-  drawerPaper: {
-    width: DRAWER_WIDTH
-  },
-  // content: {
-  //   // flexGrow: 1,
-  // },
-  toolbar: theme.mixins.toolbar,
-  active: {
-    color: theme.primary
-  }
-});
 
 class ClippedDrawer extends Component {
   constructor(props) {
@@ -102,9 +77,13 @@ class ClippedDrawer extends Component {
         <main className={this.props.classes.content}>
           <div className={this.props.classes.toolbar} />
 
-          <Route path="/app/" exact render={()=>{
-            return <Redirect to="app/dashboard" />
-          }}/>
+          <Route
+            path="/app/"
+            exact
+            render={() => {
+              return <Redirect to="app/dashboard" />;
+            }}
+          />
 
           {this.props.routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
