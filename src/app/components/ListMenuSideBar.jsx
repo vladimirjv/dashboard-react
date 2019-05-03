@@ -6,7 +6,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { 
   Dashboard,
   Map,
-  DirectionsCar
+  DirectionsCar,
+  Chat
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import Items from "../utils/itemsNavbar";
@@ -29,6 +30,8 @@ class SideBarMenu extends Component {
         return <Map/>
       case 'directionsCar':
         return <DirectionsCar/>
+      case 'chat':
+        return <Chat/>
       default:
         break;
     }

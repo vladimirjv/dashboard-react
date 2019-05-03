@@ -1,14 +1,6 @@
 /* jshint esversion:6 */
 import mapboxgl from "mapbox-gl";
 
-/**
- * @typedef {object} StylesMap
- * @property {string} streets "streets"
- * @property {string} dark "dark"
- * @property {string} ligth "ligth"
- * @property {string} custom "custom"
- */
-
 // ? Constantes
 export const apiToken =
   "pk.eyJ1IjoidmxhZGltaXJqdiIsImEiOiJjanU0djdoZHgwMWFoNDNwZnB0bnhlb24yIn0.oEuXyOrAgaNWgqtPC6KPJg";
@@ -18,6 +10,14 @@ export const StyleMap = {
   dark: "dark",
   ligth: "ligth"
 };
+
+/**
+ * @typedef {object} StylesMap
+ * @property {string} streets "streets"
+ * @property {string} dark "dark"
+ * @property {string} ligth "ligth"
+ * @property {string} custom "custom"
+ */
 /**
  * Draw a map
  * @param {String} container

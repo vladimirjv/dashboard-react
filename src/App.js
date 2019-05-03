@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter,Route,Redirect} from "react-router-dom";
 import routes from "./routes";
-import RouteWithSubRoutes from "./components/RouteWithSubRoutes";
+import RouteWithSubRoutes from "./app/components/RouteWithSubRoutes";
 class App extends Component {
 
   render() {

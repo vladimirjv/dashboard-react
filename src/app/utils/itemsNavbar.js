@@ -19,6 +19,11 @@ const Items = [
     name:"Placas",
     icon: "directionsCar",
     path: "/app/placas"
-  }
+  },
+  {
+		name:"Chat",
+		icon:"chat",
+		path: ""
+  },
 ];
 export default Items;

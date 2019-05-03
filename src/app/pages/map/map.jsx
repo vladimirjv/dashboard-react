@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types'
 import mapboxgl from "mapbox-gl";
-import { apiToken, drawMap, DRAWER_WIDTH } from "../../utils/map.js";
+import { apiToken, DRAWER_WIDTH } from "../../utils/map.js";
+import { drawMap } from "../../services/mapDrawService";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
