@@ -1,8 +1,9 @@
 import WebApp from "./layouts/WebApp";
 import Login from "./pages/login";
-import Inbox from "./pages/inbox";
+import Inbox from "./pages/dashboard/inbox";
 // import Mapbox from "./pages/mapbox";
-import Map from "./pages/map";
+import Map from "./pages/map/map.jsx";
+import Licenses from "./pages/licenses/licenses.jsx";
 
 const routes = [
   {
@@ -21,6 +22,10 @@ const routes = [
         path:"/app/map",
         component: Map
       },
+      {
+        path:"/app/placas",
+        component: Licenses
+      }
     ]
   }
 ];

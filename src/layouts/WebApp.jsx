@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import withWidth from "@material-ui/core/withWidth";
 import Drawer from "@material-ui/core/Drawer";
@@ -14,6 +14,8 @@ import Hidden from "@material-ui/core/Hidden";
 import RouteWithSubRoutes from "../components/RouteWithSubRoutes";
 import ListMenuSideBar from "../components/ListMenuSideBar";
 import { DRAWER_WIDTH } from "../utils/map";
+import { Route, Redirect } from "react-router-dom";
+
 
 const styles = theme => ({
   root: {
@@ -100,9 +102,9 @@ class ClippedDrawer extends Component {
         <main className={this.props.classes.content}>
           <div className={this.props.classes.toolbar} />
 
-          {/* <Typography variant="h5">
-              {`my actual width ${this.Clipped()}`}
-          </Typography> */}
+          <Route path="/app/" exact render={()=>{
+            return <Redirect to="app/dashboard" />
+          }}/>
 
           {this.props.routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
@@ -113,8 +115,8 @@ class ClippedDrawer extends Component {
   }
 }
 
-ClippedDrawer.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+// ClippedDrawer.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
 export default withWidth()(withStyles(styles)(ClippedDrawer));
