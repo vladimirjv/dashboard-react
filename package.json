@@ -5,7 +5,12 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
+    "faker": "^4.1.0",
+    "global": "^4.3.2",
+    "jslint": "^0.12.1",
     "mapbox-gl": "^0.53.1",
+    "materialize-css": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-map-gl": "^4.1.2",

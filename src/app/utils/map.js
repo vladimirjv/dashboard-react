@@ -6,9 +6,10 @@ export const apiToken =
   "pk.eyJ1IjoidmxhZGltaXJqdiIsImEiOiJjanU0djdoZHgwMWFoNDNwZnB0bnhlb24yIn0.oEuXyOrAgaNWgqtPC6KPJg";
 
 export const StyleMap = {
-  streets: "mapbox://styles/mapbox/streets-v9",
-  dark: "dark",
-  ligth: "ligth"
+  streets: "mapbox://styles/mapbox/streets-v11",
+  light: "mapbox://styles/mapbox/light-v9",
+  custom: "mapbox://styles/vladimirjv/cju8wifav1zrw1fnwr5uxqlh0",
+  dark: "mapbox://styles/mapbox/dark-v9"
 };
 
 /**
