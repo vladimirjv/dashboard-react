@@ -1,5 +1,5 @@
 import WebApp from "./app/layouts/webapp/WebApp";
-import Login from "./app/pages/login";
+import Login from "./app/pages/login/login";
 import Dashboard from "./app/pages/dashboard/dashboard";
 // import Mapbox from "./pages/mapbox";
 import Map from "./app/pages/map/map";

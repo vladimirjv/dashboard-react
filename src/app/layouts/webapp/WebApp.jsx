@@ -22,19 +22,15 @@ class ClippedDrawer extends Component {
   clippedDrawer() {
     if (this.props.width === "lg" || this.props.width === "md") {
       this.props.changeVisibility(true);
-      console.log('hey show');
-      // return false;
     } else {
       this.props.changeVisibility(false);
-      console.log('hey hide')
-      // return true;
     }
   }
   componentDidMount() {
-    window.addEventListener("resize",this.clippedDrawer);
+    window.addEventListener("resize", this.clippedDrawer);
   }
   componentWillUnmount() {
-    window.removeEventListener("resize",this.clippedDrawer);
+    window.removeEventListener("resize", this.clippedDrawer);
   }
 
   render() {

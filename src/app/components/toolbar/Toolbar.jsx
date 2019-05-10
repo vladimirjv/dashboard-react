@@ -16,9 +16,7 @@ export class ToolbarComponent extends Component {
     this.props.changeVisibility(!this.props.visibility);
   }
 
-  componentDidMount() {
-    console.log(this.props.visibility);
-  }
+  componentDidMount() {}
 
   render() {
     return (

@@ -1,10 +1,14 @@
+//? Imports React
 import React, { Component } from "react";
-// import PropTypes from 'prop-types'
+//? Imports MaterialUI
+import { withStyles } from "@material-ui/core/styles";
+//? Imports JSLibraries
 import mapboxgl from "mapbox-gl";
+//? Imports Styles
+import { styles } from "./map.styles.js";
+//? Imports Utils-Extra (project files)
 import { apiToken } from "../../utils/map.js";
 import { drawMap, drawMarkets } from "../../services/mapDrawService";
-import { withStyles } from "@material-ui/core/styles";
-import { styles } from "./map.styles.js";
 import ButtonsControl from "../../utils/MapButonsControll.js";
 import { PanicRandom } from "../../services/mapService.js";
 
@@ -31,10 +35,8 @@ class Map extends Component {
   render() {
     return (
       <>
-        <div className={this.props.classes.map} id="map" />
-        {/* <div className={this.props.classes.content}>
-          <h2>dasd</h2>
-        </div> */}
+        {/* <div className={this.props.classes.map} id="map" /> */}
+        <div className="content p-0" id="map" />
       </>
     );
   }

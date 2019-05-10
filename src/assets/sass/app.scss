@@ -1,0 +1,22 @@
+$sm: 600px;
+$md: 960px;
+$lg:1280px;
+$xl:1920px;
+$DrawerWidh:180px;
+
+.content {
+    flex-grow: 1;
+    position: absolute;
+    top: 0px + 64px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+
+    @media screen and (min-width:$md) {
+        left: $DrawerWidh;
+    }
+}
+
+.p-0 {
+    padding: 0px;
+}

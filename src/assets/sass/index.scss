@@ -40,6 +40,9 @@
 // @import "../../../node_modules/materialize-css/sass/components/datepicker";
 // @import "../../../node_modules/materialize-css/sass/components/timepicker";
 
+@import "_myvariables.sass";
+@import "./app.scss";
+
 .mapboxgl-ctrl {
 	margin: 10px;
 	pointer-events: auto;

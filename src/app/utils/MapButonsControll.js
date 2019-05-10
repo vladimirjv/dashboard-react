@@ -1,6 +1,8 @@
-import { Button } from "@material-ui/core";
+//? Imports React
 import React from "react";
 import ReactDOM from "react-dom";
+//? Imports MaterialUI
+import { Button } from "@material-ui/core";
 
 export default class ButtonsControl {
   constructor(props) {
@@ -14,7 +16,6 @@ export default class ButtonsControl {
     this._container.className = "mapboxgl-ctrl";
 
     ReactDOM.render(
-      // <Button variant="contained" color="secondary">
       <Button
         variant="contained"
         className="deep-orange darken-4 text-white"

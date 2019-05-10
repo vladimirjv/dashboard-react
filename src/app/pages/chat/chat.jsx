@@ -1,8 +1,12 @@
+// ? Import React
+import React, { Component } from "react";
+// ? Import MaterialUI Components
 import { Avatar, Grid, Typography } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
-import React, { Component } from "react";
-import "./chat.scss";
+//? Imports Styles
 import { styles } from "./chat.styles";
+import "./chat.scss";
+
 class Chat extends Component {
   constructor(props) {
     super(props);
