@@ -18,7 +18,7 @@ const routes = [
       {
         path: "/app/dashboard",
         component: Dashboard,
-        classesFromParms: "content"
+        classesFromParms: "content "
       },
       {
         path: "/app/map",

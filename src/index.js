@@ -8,6 +8,7 @@ import App from "./App";
 
 import "./assets/css/index.css";
 import "./assets/sass/index.scss";
+import "./assets/animations/animate.css";
 
 ReactDOM.render(
   <Provider store={rootStore}>

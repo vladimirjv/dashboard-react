@@ -7,7 +7,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
 
-import ListMenuSideBar from "../../components/ListMenuSideBar";
+import ListMenuSideBar from "../../components/SideBar/ListMenuSideBar";
 import RouteWithSubRoutes from "../../components/RouteWithSubRoutes";
 import ToolbarComponent from "../../components/toolbar/Toolbar";
 import { setDrawerVisibility } from "../../store/actions";
