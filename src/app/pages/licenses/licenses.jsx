@@ -20,7 +20,7 @@ export class licenses extends Component {
 
   render() {
     return (
-      <div className="content">
+      <div className={this.props.classNames}>
         <h2> hello {this.state.name}</h2>
       </div>
     );

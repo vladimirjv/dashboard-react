@@ -17,6 +17,7 @@ class Inbox extends Component {
     this.state = {};
   }
   componentDidMount() {
+    console.log(this.props);
     var ctx = document.getElementById("myChart").getContext("2d");
     // eslint-disable-next-line
     var myChart = new Chart(ctx, {
@@ -63,8 +64,7 @@ class Inbox extends Component {
 
   render() {
     return (
-      // <div className={this.props.classes.content}>
-      <div className="content">
+      <div className={this.props.classNames}>
         <Grid container>
           <Grid item xs={12} sm={6} md={6}>
             <Paper className={this.props.classes.root} elevation={1}>

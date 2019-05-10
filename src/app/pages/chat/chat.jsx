@@ -15,7 +15,7 @@ class Chat extends Component {
 
   render() {
     return (
-      <div className={this.props.classes.chat}>
+      <div className={this.props.classNames}>
         <div className="message">
           <Grid container wrap="nowrap" spacing={16}>
             <Grid item>

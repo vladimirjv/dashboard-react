@@ -17,7 +17,8 @@ const routes = [
     routes: [
       {
         path: "/app/dashboard",
-        component: Dashboard
+        component: Dashboard,
+        classesFromParms: "content"
       },
       {
         path: "/app/map",
@@ -25,11 +26,13 @@ const routes = [
       },
       {
         path: "/app/placas",
-        component: Licenses
+        component: Licenses,
+        classesFromParms: "content"
       },
       {
         path: "/app/chat",
-        component: Chat
+        component: Chat,
+        classesFromParms: "content"
       }
     ]
   }
