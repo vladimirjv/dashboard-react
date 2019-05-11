@@ -28,13 +28,26 @@ export const chart1 = {
   },
   options: {
     scales: {
+      xAxes: [
+        {
+          ticks: {
+            fontColor: "white"
+          }
+        }
+      ],
       yAxes: [
         {
           ticks: {
-            beginAtZero: true
+            beginAtZero: true,
+            fontColor: "white"
           }
         }
       ]
+    },
+    legend: {
+      labels: {
+        fontColor: "white"
+      }
     }
   }
 };

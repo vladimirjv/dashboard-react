@@ -1,7 +1,5 @@
 import { createStore } from "redux";
+import App from "./reducers";
 
-import { drawerVisibility } from "./reducers";
-
-
-let store = createStore(drawerVisibility);
+let store = createStore(App);
 export default store;

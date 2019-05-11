@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Typography } from "@material-ui/core";
 import "./licenses.css";
 import { nameRef } from "../../../firebase.config";
 
@@ -21,7 +22,7 @@ export class licenses extends Component {
   render() {
     return (
       <div className={this.props.classNames}>
-        <h2> hello {this.state.name}</h2>
+        <Typography variant="h2">Hello {this.state.name}</Typography>
       </div>
     );
   }

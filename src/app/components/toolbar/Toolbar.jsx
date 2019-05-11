@@ -1,19 +1,37 @@
 import React, { Component } from "react";
 import Toolbar from "@material-ui/core/Toolbar";
 import { Hidden, IconButton, Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
+import Opacity from "@material-ui/icons/Opacity";
 import { connect } from "react-redux";
-import { setDrawerVisibility } from "../../store/actions";
+import { setDrawerVisibility, toggleTheme } from "../../store/actions";
 
+const style = {
+  grow: {
+    flexGrow: 1
+  }
+};
 export class ToolbarComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      themeDark: false
+    };
     this.Drawer = this.Drawer.bind(this);
+    this.Theme = this.Theme.bind(this);
   }
 
   Drawer() {
     this.props.changeVisibility(!this.props.visibility);
+  }
+
+  Theme() {
+    if (this.props.theme === "light") {
+      this.props.changeTheme("dark");
+    } else {
+      this.props.changeTheme("light");
+    }
   }
 
   componentDidMount() {}
@@ -26,22 +44,30 @@ export class ToolbarComponent extends Component {
             <MenuIcon />
           </IconButton>
         </Hidden>
-        <Typography variant="h6" color="inherit" noWrap>
-          Dashboard
-        </Typography>
+        <div className={this.props.classes.grow}>
+          <Typography variant="h6" color="inherit" noWrap>
+            Dashboard
+          </Typography>
+        </div>
+        <IconButton aria-haspopup="true" color="inherit" onClick={this.Theme}>
+          <Opacity />
+        </IconButton>
       </Toolbar>
     );
   }
 }
 const mapStateToProps = state => ({
-  visibility: state.visibility
+  state: state,
+  visibility: state.visibility,
+  theme: state.Theme
 });
 
 const mapDispatchToProps = {
-  changeVisibility: value => setDrawerVisibility(value)
+  changeVisibility: value => setDrawerVisibility(value),
+  changeTheme: value => toggleTheme(value)
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ToolbarComponent);
+)(withStyles(style)(ToolbarComponent));

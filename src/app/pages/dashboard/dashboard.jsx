@@ -10,10 +10,9 @@ class Inbox extends Component {
     this.state = {};
   }
   componentDidMount() {
-    console.log(this.props);
     var ctx = document.getElementById("myChart").getContext("2d");
     // eslint-disable-next-line
-    var myChart = new Chart(ctx, chart1);
+    new Chart(ctx, chart1);
   }
 
   render() {

@@ -35,7 +35,11 @@ class Map extends Component {
    */
   resize() {
     let width;
-    if (this.props.width === "lg" ||this.props.width === "md" ||this.props.width === "xl") {
+    if (
+      this.props.width === "lg" ||
+      this.props.width === "md" ||
+      this.props.width === "xl"
+    ) {
       width = window.innerWidth - drawerWidth;
     } else {
       width = window.innerWidth;
@@ -75,7 +79,6 @@ class Map extends Component {
 
   render() {
     return (
-      // className={this.props.classes.content}
       <div>
         <ReactMapGL
           {...this.state.viewport}

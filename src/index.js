@@ -10,6 +10,8 @@ import "./assets/css/index.css";
 import "./assets/sass/index.scss";
 import "./assets/animations/animate.css";
 
+// console.log(rootStore);
+
 ReactDOM.render(
   <Provider store={rootStore}>
     <link
