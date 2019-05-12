@@ -20,10 +20,18 @@ class ClippedDrawer extends Component {
     this.clippedDrawer = this.clippedDrawer.bind(this);
   }
   clippedDrawer() {
-    if (this.props.width === "lg" || this.props.width === "md") {
+    // console.log(this.props.visibility);
+    // console.log(this.props.width);
+    if (
+      this.props.width === "xl" ||
+      this.props.width === "lg" ||
+      this.props.width === "md"
+    ) {
       this.props.changeVisibility(true);
+      // console.log("show");
     } else {
       this.props.changeVisibility(false);
+      // console.log("not Show");
     }
   }
   componentDidMount() {
@@ -69,19 +77,14 @@ class ClippedDrawer extends Component {
   }
 }
 
-// ClippedDrawer.propTypes = {
-//   classes: PropTypes.object.isRequired
-// };
 const mapStateToProps = state => {
   return {
     visibility: state.visibility
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeVisibility: value => dispatch(setDrawerVisibility(value))
-  };
+const mapDispatchToProps = {
+  changeVisibility: value => setDrawerVisibility(value)
 };
 
 export default connect(

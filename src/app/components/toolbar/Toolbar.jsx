@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import Opacity from "@material-ui/icons/Opacity";
 import { connect } from "react-redux";
-import { setDrawerVisibility, toggleTheme } from "../../store/actions";
+import { toggleTheme, setDrawerVisibility } from "../../store/actions";
 
 const style = {
   grow: {
@@ -58,7 +58,6 @@ export class ToolbarComponent extends Component {
 }
 const mapStateToProps = state => ({
   state: state,
-  visibility: state.visibility,
   theme: state.Theme
 });
 

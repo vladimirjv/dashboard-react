@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { chart1 } from "./dashboard.configs";
+import { ConfigDemo } from "./dashboard.configs";
 import { Grid, Paper } from "@material-ui/core";
+import { connect } from "react-redux";
 import Chart from "chart.js";
 import "./dashboard.styles.scss";
 
@@ -12,7 +13,8 @@ class Inbox extends Component {
   componentDidMount() {
     var ctx = document.getElementById("myChart").getContext("2d");
     // eslint-disable-next-line
-    new Chart(ctx, chart1);
+    // new Chart(ctx, chart1);
+    new Chart(ctx, ConfigDemo(this.props.theme));
   }
 
   render() {
@@ -29,4 +31,13 @@ class Inbox extends Component {
     );
   }
 }
-export default Inbox;
+const mapStateToProps = state => ({
+  theme: state.Theme
+});
+
+const mapDispatchToProps = {};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Inbox);
